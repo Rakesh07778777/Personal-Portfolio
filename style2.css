@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.projects{
+    height: 80vh;
+}
+
+.projects .project-container{
+    display: flex;
+    justify-content: space-evenly;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.card{
+    position: relative;
+    height: 300px;
+    width: 250px;
+    background-color: rgba(0, 0, 0, 0.45);
+    /* clip-path: path("M 10,20 L 60, 20 L 70, 10 L 70, 10 L 80, 0 L 140, 0 L 150, 10 L 150, 190 L 140, 200 L 10, 200 L 0, 190 L 0, 30 L 10, 20  Z"); */
+    
+}

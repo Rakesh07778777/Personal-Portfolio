@@ -12,6 +12,13 @@
    --bg-secondary: hsl(210, 20%, 98%);
    --bg-tertiary: hsl(210, 15%, 95%);
 
+      /* Backgrounds */
+   --bg-primary-b: hsl(210, 15%, 8%);
+   /* Near black */
+   --bg-secondary-b: hsl(210, 15%, 12%);
+   /* Dark gray */
+   --bg-tertiary-b: hsl(210, 15%, 16%);
+   /* Softer dark gray */
    /* Text */
    --text-primary: hsl(210, 15%, 10%);
    --text-secondary: hsl(210, 10%, 30%);
@@ -129,12 +136,12 @@
  }
 
  body {
-   background: #ffffff;
+   background-color:var(--bg-secondary-b);
  }
 
  header {
    padding: auto;
-   background-color: var(--bg-secondary);
+  background-color:var(--bg-secondary-b);
    padding: 0 var(--margin-xl);
  }
 
@@ -152,6 +159,7 @@
    align-items: center;
    justify-content: space-between;
    max-width: 1400px;
+   background-color:var(--bg-secondary-b);
  }
 
  /* Search box */
@@ -216,13 +224,13 @@
    bottom: -5px;
    width: 0%;
    height: 2px;
-   background-color: var(--text-secondary);
+   background-color: var(--sky-blue);
    border-radius: 2px;
    transition: width 0.3s ease;
  }
 
  .nav-links ul li a:hover {
-   color: var(--bg-dark);
+   color: var(--sky-blue-hover);
  }
 
  .nav-links ul li:hover::after {
@@ -232,8 +240,10 @@
 
  .nav-links a {
    text-decoration: none;
-   color: #444;
+   --text-white : #e4e4e4;
+   color: var(--text-white);
    font-weight: 500;
+   transition: all 0.2s ease;
  }
 
  /* Power button */
@@ -294,11 +304,11 @@
  /* Main section */
 
  main {
-   height: calc(100vh - 94px);
-   background-color: var(--bg-secondary);
+   height: calc(100vh - 55px);
+   background-color:var(--bg-secondary-b);
    display: grid;
    grid-template-columns: repeat(2, 1fr);
-   grid-template-rows: 480px 110px;
+   grid-template-rows: calc((100vh - 55px) - 110px) ,110px;
    grid-template-areas:
      'first           second'
      'third                third'
@@ -311,7 +321,7 @@
  }
 
  .left h2:nth-child(1) {
-   color: var(--text-primary);
+   color:white;
    font-size: var(--fs-4xl);
    line-height: 1.2;
    margin-top: var(--margin-xxl);
@@ -325,6 +335,10 @@
    color: var(--sky-blue);
  }
 
+ #element{
+  text-shadow: 0 0 8px rgba(78, 158, 255, 0.5);
+ }
+
  .left > p {
    color: var(--text-secondary);
    margin-top: var(--margin-l);
@@ -334,7 +348,7 @@
    border: none;
    padding: var(--margin-s) var(--margin-l);
    background-color: var(--sky-blue);
-   color: var(--bg-secondary);
+   color: var(--text-white);
    border-radius: 10px;
    margin-top: var(--margin-l);
    transition: background 0.2s ease;
@@ -353,7 +367,7 @@
  }
 
  .icons p {
-   color: var(--text-primary);
+   color: white;
  }
 
  .icons a {
