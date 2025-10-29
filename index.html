@@ -72,45 +72,47 @@
   </div>
 
   <main>
+    <img src="images/gradient.png" alt="">
+    <spline-viewer class="robot-3d" url="https://prod.spline.design/mRe8r47UH3Ax4U5M/scene.splinecode"></spline-viewer>
     <div class="left">
         <h2>Hi, my name is <span>Rakesh</span> and I am passionate about <br><span id="element"></span></h2>
        
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero explicabo itaque neque deserunt ipsam, sapiente repellat natus. Assumenda repudiandae magnam inventore amet eius quis expedita.</p>
-        <button class="schedule">Schedule A Meeting</button>
+        <button class="schedule">Hire me</button>
         <div class="icons">
-            <p>Follow me</p>
+            <p class="follow">Follow me</p>
              <a href="#"><i class="fa-brands fa-square-instagram"></i></a>
     <a href="#"><i class="fa-brands fa-youtube"></i></a>
     <a href="#"><i class="fa-brands fa-linkedin"></i></a>
     <a href="#"><i class="fa-brands fa-square-x-twitter"></i></a>
         </div>
     </div>
-    <div class="right">
-        <img src="Adobe Express - file (6).png" alt="">
-        <img src="favpng_c8d3beb67957976024cf2cf72dd456c8.png" alt="">
-    </div>
+    <!-- <div class="right">
+        <img class="first-img" src="Adobe Express - file (6).png" alt="">
+        <img class="second-img" src="favpng_c8d3beb67957976024cf2cf72dd456c8.png" alt="">
+    </div> -->
     <div class="bottom">
 
         <div class="firstSvg">
-             <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+             <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#7A7A7A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M12 2l2 7h7l-5.5 4 2 7-5.5-4-5.5 4 2-7-5.5-4h7z"/>
         </svg> 
         <h1>Ui/UX expert</h1>
         </div>
         <div class="firstSvg">
-             <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+             <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#7A7A7A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M12 2l2 7h7l-5.5 4 2 7-5.5-4-5.5 4 2-7-5.5-4h7z"/>
         </svg> 
         <h1>Creative Design</h1>
         </div>
         <div class="firstSvg">
-             <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+             <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#7A7A7A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M12 2l2 7h7l-5.5 4 2 7-5.5-4-5.5 4 2-7-5.5-4h7z"/>
         </svg> 
         <h1>100% Satisfaction</h1>
         </div>
         <div class="firstSvg">
-             <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+             <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#7A7A7A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M12 2l2 7h7l-5.5 4 2 7-5.5-4-5.5 4 2-7-5.5-4h7z"/>
         </svg> 
         <h1>Quick Support</h1>
@@ -173,17 +175,39 @@
   </div>
 </section>
 
-<section class="projects">
-  <div class="project-container">
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
+<section class="projects" id="projects">
+   <div class="video-container">
+    <video autoplay muted loop playsinline>
+      <source src="images/video2.mp4" type="video/mp4">
+    </video>
+    <div class="overlay-texts">
+      <h2 class="projects-txt">Create Stunning Websites</h2>
+      <h2 class="projects-txt">Design Beautiful Interfaces</h2>
+      <h2 class="projects-txt">Build Modern Apps</h2>
+    </div>
+   </div>
+</section>
+
+<section id="project-section">
+  <div class="project-card">
+    <div class="project-image">
+      <img src="images/IMG_0729.PNG" alt="">
+    </div>
+    <div class="project-content">
+      <h1>Website Designs</h1>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt officiis eaque perferendis quis libero provident, ad iusto aut est, numquam at obcaecati corrupti quidem minus veniam repudiandae maiores nihil, explicabo voluptates labore facere maxime voluptas similique? Ducimus fugiat ab nam tempore voluptas repellat veniam.</p>
+      <button>Explore</button>
+    </div>
   </div>
+
 </section>
 
 
   <!-- Scipts =======> -->
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.89/build/spline-viewer.js"></script>
+
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
       <script>
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
@@ -202,5 +226,21 @@
       typeSpeed: 50,
     });
   </script>
+
+  <script>
+  const video = document.querySelector('.video-container video');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        video.play(); // start video when section is visible
+        observer.unobserve(video); // optional: stop observing after playing once
+      }
+    });
+  }, { threshold: 0.5 }); // triggers when 50% of video is visible
+
+  observer.observe(video);
+</script>
+<script src="app.js"></script>
 </body>
 </html>
