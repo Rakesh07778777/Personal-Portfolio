@@ -282,3 +282,20 @@
         .about-image:hover img {
             transform: scale(1.05);
         }
+
+  /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+        }
+
+        .skill-category h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+        }
+
+        .skill-item {
+            margin-bottom: 1.5rem;
+        }
