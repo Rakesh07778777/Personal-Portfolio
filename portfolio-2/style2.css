@@ -299,3 +299,24 @@
         .skill-item {
             margin-bottom: 1.5rem;
         }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-name {
+            font-weight: 500;
+        }
+
+        .skill-percentage {
+            color: var(--accent);
+        }
+
+        .skill-bar {
+            height: 6px;
+            background-color: var(--border);
+            border-radius: 3px;
+            overflow: hidden;
+        }
