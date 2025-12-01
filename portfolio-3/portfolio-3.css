@@ -188,3 +188,36 @@
             text-transform: uppercase;
             letter-spacing: 2px;
         }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 60px;
+        }
+
+        .skill-item h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .skill-item p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .skill-list {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            padding: 8px 16px;
+            background: #f5f5f5;
+            border: 1px solid #e0e0e0;
+            font-size: 13px;
+            border-radius: 4px;
+        }
