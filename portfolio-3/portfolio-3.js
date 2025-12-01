@@ -92,3 +92,67 @@
                 ease: 'power2.out'
             });
         });
+
+
+        // Timeline animation
+        gsap.utils.toArray('.timeline-item').forEach((item, index) => {
+            gsap.from(item, {
+                scrollTrigger: {
+                    trigger: item,
+                    start: 'top 85%'
+                },
+                opacity: 0,
+                x: -30,
+                duration: 0.7,
+                delay: index * 0.1,
+                ease: 'power2.out'
+            });
+        });
+
+        // Contact section animation
+        gsap.from('.contact-content h2', {
+            scrollTrigger: {
+                trigger: '.contact-content',
+                start: 'top 75%'
+            },
+            opacity: 0,
+            y: 30,
+            duration: 0.8,
+            ease: 'power2.out'
+        });
+
+        gsap.from('.contact-content p', {
+            scrollTrigger: {
+                trigger: '.contact-content',
+                start: 'top 75%'
+            },
+            opacity: 0,
+            y: 20,
+            duration: 0.8,
+            delay: 0.2,
+            ease: 'power2.out'
+        });
+
+        gsap.from('.contact-email', {
+            scrollTrigger: {
+                trigger: '.contact-content',
+                start: 'top 75%'
+            },
+            opacity: 0,
+            scale: 0.9,
+            duration: 0.8,
+            delay: 0.4,
+            ease: 'back.out(1.7)'
+        });
+
+        gsap.from('.social-links', {
+            scrollTrigger: {
+                trigger: '.contact-content',
+                start: 'top 75%'
+            },
+            opacity: 0,
+            y: 20,
+            duration: 0.8,
+            delay: 0.6,
+            ease: 'power2.out'
+        });
