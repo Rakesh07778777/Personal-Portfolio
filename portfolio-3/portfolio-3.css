@@ -452,3 +452,57 @@
             color: #666;
             font-size: 14px;
         }
+
+
+        /* Mobile Responsive */
+        @media (max-width: 968px) {
+            nav, .hero, .section, footer {
+                padding-left: 40px;
+                padding-right: 40px;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .project-item,
+            .project-item:nth-child(even) {
+                grid-template-columns: 1fr;
+            }
+
+            .project-item:nth-child(even) .project-image {
+                order: 1;
+            }
+
+            .project-item:nth-child(even) .project-info {
+                order: 2;
+            }
+
+            .nav-links {
+                gap: 20px;
+            }
+
+            .contact-content h2 {
+                font-size: 36px;
+            }
+
+            .contact-email {
+                font-size: 24px;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+        }
