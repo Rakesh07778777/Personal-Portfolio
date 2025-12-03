@@ -1012,3 +1012,75 @@
             color: var(--accent);
             font-weight: 300;
         }
+
+    /* Mobile Responsive */
+        @media (max-width: 968px) {
+            body {
+                cursor: auto;
+            }
+
+            .cursor, .cursor-follower {
+                display: none;
+            }
+
+            nav, section, footer {
+                padding-left: 30px;
+                padding-right: 30px;
+            }
+
+            .hero-title {
+                font-size: 60px;
+            }
+
+            .menu-links a {
+                font-size: 40px;
+            }
+
+            .section-title {
+                font-size: 48px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .about-text p {
+                font-size: 20px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-item {
+                grid-template-columns: 1fr;
+                padding: 40px 30px;
+            }
+
+            .project-year {
+                text-align: left;
+            }
+
+            .awards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-title {
+                font-size: 48px;
+            }
+
+            .contact-email {
+                font-size: 28px;
+            }
+
+            .marquee {
+                font-size: 60px;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+        }
