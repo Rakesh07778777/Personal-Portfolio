@@ -550,3 +550,86 @@
                     ease: 'none'
                 });
             });
+
+
+
+            // Magnetic effect for contact email
+            const contactEmail = document.querySelector('.contact-email');
+            contactEmail.addEventListener('mousemove', function(e) {
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                
+                gsap.to(this, {
+                    x: x * 0.3,
+                    y: y * 0.3,
+                    duration: 0.3,
+                    ease: 'power2.out'
+                });
+            });
+
+            contactEmail.addEventListener('mouseleave', function() {
+                gsap.to(this, {
+                    x: 0,
+                    y: 0,
+                    duration: 0.5,
+                    ease: 'elastic.out(1, 0.5)'
+                });
+            });
+
+            // Stagger reveal for project numbers
+            gsap.utils.toArray('.project-number').forEach(num => {
+                gsap.from(num, {
+                    scrollTrigger: {
+                        trigger: num,
+                        start: 'top 90%'
+                    },
+                    opacity: 0,
+                    scale: 0,
+                    duration: 0.6,
+                    ease: 'back.out(1.7)'
+                });
+            });
+
+            // Image overlay effect on about section
+            ScrollTrigger.create({
+                trigger: '.about-image-wrapper',
+                start: 'top 80%',
+                onEnter: () => {
+                    gsap.to('.image-overlay', {
+                        scaleY: 0,
+                        duration: 1.2,
+                        ease: 'power4.inOut',
+                        transformOrigin: 'top'
+                    });
+                }
+            });
+
+            // Add subtle hover animations to all links
+            document.querySelectorAll('a').forEach(link => {
+                link.addEventListener('mouseenter', function() {
+                    gsap.to(this, {
+                        letterSpacing: '2px',
+                        duration: 0.3,
+                        ease: 'power2.out'
+                    });
+                });
+
+                link.addEventListener('mouseleave', function() {
+                    gsap.to(this, {
+                        letterSpacing: 'normal',
+                        duration: 0.3,
+                        ease: 'power2.out'
+                    });
+                });
+            });
+
+            // 3D rotation for background cubes
+            gsap.to('.bg-cube', {
+                rotationY: 360,
+                rotationX: 360,
+                duration: 40,
+                repeat: -1,
+                ease: 'none'
+            });
+        }
