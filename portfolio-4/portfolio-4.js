@@ -81,3 +81,46 @@
                 gsap.to(cursorFollower, { scale: 1, duration: 0.3 });
             });
         });
+
+
+        // Loader Animation
+        const loaderProgress = document.querySelector('.loader-progress');
+        const loader = document.querySelector('.loader');
+
+        let progress = 0;
+        const progressInterval = setInterval(() => {
+            progress += Math.random() * 10 + 5;
+            if (progress >= 100) {
+                progress = 100;
+                clearInterval(progressInterval);
+                
+                gsap.to(loaderProgress, {
+                    width: '100%',
+                    duration: 0.5,
+                    ease: 'power2.inOut',
+                    onComplete: () => {
+                        gsap.to('.loader-text', {
+                            opacity: 0,
+                            y: -20,
+                            duration: 0.5
+                        });
+                        gsap.to(loader, {
+                            clipPath: 'polygon(0 0, 100% 0, 100% 0, 0 0)',
+                            duration: 1.2,
+                            ease: 'power4.inOut',
+                            delay: 0.3,
+                            onComplete: () => {
+                                loader.style.display = 'none';
+                                initAnimations();
+                            }
+                        });
+                    }
+                });
+            } else {
+                gsap.to(loaderProgress, {
+                    width: `${progress}%`,
+                    duration: 0.3,
+                    ease: 'power1.out'
+                });
+            }
+        }, 150);
