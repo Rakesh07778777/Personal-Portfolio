@@ -57,3 +57,43 @@
             0% { transform: rotateX(0) rotateY(0) rotateZ(0); }
             100% { transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg); }
         }
+
+
+        /* Particle Background */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        /* Custom Cursor - Enhanced */
+        .cursor {
+            width: 12px;
+            height: 12px;
+            background: var(--primary);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 99999;
+            mix-blend-mode: difference;
+            transform: translate(0, 0) scale(1);
+            transition: transform 0.1s ease;
+            filter: drop-shadow(0 0 8px var(--neon-blue));
+        }
+
+        .cursor-follower {
+            width: 60px;
+            height: 60px;
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 99998;
+            mix-blend-mode: difference;
+            transform: translate(0, 0) scale(1);
+            transition: transform 0.3s ease;
+            filter: drop-shadow(0 0 12px var(--neon-pink));
+        }
+
+        /* Grain Effect */
