@@ -881,3 +881,89 @@
             background: linear-gradient(135deg, rgba(157, 0, 255, 0.2), rgba(0, 243, 255, 0.2));
             z-index: -1;
         }
+
+
+        /* Awards Section - Enhanced */
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .award-item {
+            background: var(--bg);
+            padding: 60px;
+            border-left: 1px solid transparent;
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .award-item:hover {
+            border-left-color: var(--neon-blue);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .award-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(157, 0, 255, 0.05), rgba(0, 243, 255, 0.05));
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .award-item:hover::before {
+            opacity: 1;
+        }
+
+        .award-year {
+            font-size: 14px;
+            color: var(--accent);
+            margin-bottom: 20px;
+            letter-spacing: 4px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .award-year::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 30px;
+            height: 1px;
+            background: var(--neon-pink);
+            transition: width 0.3s ease;
+        }
+
+        .award-item:hover .award-year::after {
+            width: 100%;
+        }
+
+        .award-title {
+            font-size: 32px;
+            font-weight: 300;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+            transition: color 0.3s ease;
+        }
+
+        .award-item:hover .award-title {
+            background: linear-gradient(90deg, var(--neon-pink), var(--neon-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .award-org {
+            font-size: 18px;
+            color: var(--accent);
+        }
