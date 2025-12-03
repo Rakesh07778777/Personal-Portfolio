@@ -33,3 +33,51 @@
             },
             retina_detect: true
         });
+
+
+        // Register GSAP plugins
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Custom Cursor
+        const cursor = document.querySelector('.cursor');
+        const cursorFollower = document.querySelector('.cursor-follower');
+
+        let mouseX = 0;
+        let mouseY = 0;
+        let cursorX = 0;
+        let cursorY = 0;
+        let followerX = 0;
+        let followerY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        // Smooth cursor animation
+        function animateCursor() {
+            // Cursor lag effect
+            cursorX += (mouseX - cursorX) * 0.3;
+            cursorY += (mouseY - cursorY) * 0.3;
+            followerX += (mouseX - followerX) * 0.1;
+            followerY += (mouseY - followerY) * 0.1;
+
+            cursor.style.transform = `translate(${cursorX}px, ${cursorY}px)`;
+            cursorFollower.style.transform = `translate(${followerX}px, ${followerY}px)`;
+
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+
+        // Cursor hover effects - Enhanced
+        document.querySelectorAll('a, .menu-toggle, .project-item, .skill-item, .award-item').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                gsap.to(cursor, { scale: 2, duration: 0.3 });
+                gsap.to(cursorFollower, { scale: 1.5, duration: 0.3 });
+            });
+            
+            el.addEventListener('mouseleave', () => {
+                gsap.to(cursor, { scale: 1, duration: 0.3 });
+                gsap.to(cursorFollower, { scale: 1, duration: 0.3 });
+            });
+        });
