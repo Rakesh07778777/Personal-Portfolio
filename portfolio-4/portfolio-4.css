@@ -495,3 +495,94 @@
             height: 3px;
             background: linear-gradient(90deg, var(--neon-pink), var(--neon-blue));
         }
+
+      /* About Section - Enhanced */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 120px;
+            align-items: center;
+        }
+
+        .about-image-wrapper {
+            position: relative;
+            aspect-ratio: 3/4;
+            overflow: hidden;
+            border-radius: 10px;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 120px;
+            position: relative;
+            transform: rotateY(0);
+            transition: transform 0.8s ease;
+        }
+        
+        .about-image img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            transition: transform 1s ease;
+        }
+
+        .about-image-wrapper:hover .about-image img {
+            transform: scale(1.05);
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--primary);
+            transform-origin: bottom;
+            border-radius: 10px;
+        }
+
+        .about-text p {
+            font-size: 28px;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            font-weight: 300;
+            color: #ccc;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .about-text p::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--neon-pink), var(--neon-blue));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .about-text p:hover::before {
+            opacity: 1;
+        }
+
+        .about-text p:first-child {
+            font-size: 32px;
+            color: var(--primary);
+        }
