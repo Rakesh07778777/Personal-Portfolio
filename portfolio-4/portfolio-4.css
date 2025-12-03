@@ -400,3 +400,31 @@
         .hero-subtitle::after {
             right: -40px;
         }
+
+
+             .scroll-down {
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            writing-mode: vertical-rl;
+            font-size: 11px;
+            letter-spacing: 3px;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .scroll-down::before {
+            content: '';
+            width: 1px;
+            height: 80px;
+            background: linear-gradient(to bottom, transparent, var(--accent));
+            animation: scrollLine 2s infinite;
+        }
+
+        @keyframes scrollLine {
+            0%, 100% { opacity: 0; transform: translateY(0); }
+            50% { opacity: 1; transform: translateY(20px); }
+        }
