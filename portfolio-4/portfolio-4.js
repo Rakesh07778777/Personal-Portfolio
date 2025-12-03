@@ -278,3 +278,103 @@
                 });
             });
         });
+
+
+        // Initialize Animations
+        function initAnimations() {
+            // Hero animations
+            const heroTl = gsap.timeline();
+            
+            heroTl
+                .from('.hero-label', {
+                    opacity: 0,
+                    y:30,
+                    duration: 1,
+                    ease: 'power3.out'
+                })
+                .from('.word', {
+                    y: '60%',
+                    duration: 1.2,
+                    stagger: 0.15,
+                    ease: 'power4.out'
+                }, '-=0.7')
+                .from('.hero-subtitle', {
+                    opacity: 0,
+                    y: 20,
+                    duration: 0.8,
+                    ease: 'power3.out'
+                }, '-=0.6')
+                .from('.scroll-down', {
+                    opacity: 0,
+                    duration: 1,
+                    ease: 'power3.out'
+                }, '-=0.5');
+            
+            // Floating text parallax
+            gsap.to('.floating-text', {
+                yPercent: 50,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: '.hero',
+                    start: 'top top',
+                    end: 'bottom top',
+                    scrub: 1
+                }
+            });
+            
+            // Section animations
+            gsap.utils.toArray('.section-label').forEach(label => {
+                gsap.from(label, {
+                    opacity: 0,
+                    x: -30,
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: label,
+                        start: 'top 85%',
+                        end: 'top 65%',
+                        scrub: 1
+                    }
+                });
+            });
+            
+            gsap.utils.toArray('.section-title').forEach(title => {
+                gsap.from(title, {
+                    opacity: 0,
+                    y: 50,
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: title,
+                        start: 'top 80%',
+                        end: 'top 60%',
+                        scrub: 1
+                    }
+                });
+            });
+            
+            // About section
+            ScrollTrigger.create({
+                trigger: '.about-image-wrapper',
+                start: 'top 70%',
+                onEnter: () => {
+                    gsap.to('.image-overlay', {
+                        scaleY: 0,
+                        duration: 1.2,
+                        ease: 'power4.inOut'
+                    });
+                }
+            });
+            
+            gsap.utils.toArray('.about-text p').forEach((p, i) => {
+                gsap.from(p, {
+                    opacity: 0,
+                    y: 30,
+                    duration: 0.8,
+                    scrollTrigger: {
+                        trigger: p,
+                        start: 'top 80%',
+                        end: 'top 60%',
+                        scrub: 1
+                    }
+                });
+            });
+            
