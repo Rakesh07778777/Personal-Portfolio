@@ -298,3 +298,40 @@
         .menu-links a:hover::before {
             width: 100%;
         }
+
+
+        /* Hero Section - Enhanced */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+        }
+
+        .hero-label {
+            font-size: 12px;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            color: var(--accent);
+            font-weight: 300;
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-label::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+        }
