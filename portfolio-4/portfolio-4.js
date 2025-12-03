@@ -124,3 +124,157 @@
                 });
             }
         }, 150);
+
+
+
+        // Menu Toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const fullscreenMenu = document.querySelector('.fullscreen-menu');
+        const menuLinks = document.querySelectorAll('.menu-links li');
+        let menuOpen = false;
+
+        menuToggle.addEventListener('click', () => {
+            menuOpen = !menuOpen;
+            
+            if (menuOpen) {
+                // Open menu
+                fullscreenMenu.style.visibility = 'visible';
+                
+                gsap.to(fullscreenMenu, {
+                    opacity: 1,
+                    duration: 0.6,
+                    ease: 'power3.inOut'
+                });
+                
+                gsap.to('.menu-line:nth-child(1)', {
+                    rotation: 45,
+                    y: 7,
+                    duration: 0.4,
+                    ease: 'power3.inOut'
+                });
+                
+                gsap.to('.menu-line:nth-child(2)', {
+                    opacity: 0,
+                    duration: 0.2
+                });
+                
+                gsap.to('.menu-line:nth-child(3)', {
+                    rotation: -45,
+                    y: -7,
+                    duration: 0.4,
+                    ease: 'power3.inOut'
+                });
+                
+                // Animate menu items
+                gsap.fromTo('.menu-links li', 
+                    {
+                        y: 100,
+                        opacity: 0
+                    },
+                    {
+                        y: 0,
+                        opacity: 1,
+                        duration: 0.8,
+                        stagger: 0.1,
+                        ease: 'power3.out',
+                        delay: 0.2
+                    }
+                );
+                
+            } else {
+                // Close menu
+                gsap.to('.menu-links li', {
+                    y: -50,
+                    opacity: 0,
+                    duration: 0.4,
+                    stagger: 0.05,
+                    ease: 'power3.in'
+                });
+                
+                gsap.to(fullscreenMenu, {
+                    opacity: 0,
+                    duration: 0.5,
+                    delay: 0.3,
+                    ease: 'power3.inOut',
+                    onComplete: () => {
+                        fullscreenMenu.style.visibility = 'hidden';
+                    }
+                });
+                
+                gsap.to('.menu-line:nth-child(1)', {
+                    rotation: 0,
+                    y: 0,
+                    duration: 0.4,
+                    ease: 'power3.inOut'
+                });
+                
+                gsap.to('.menu-line:nth-child(2)', {
+                    opacity: 1,
+                    duration: 0.2,
+                    delay: 0.1
+                });
+                
+                gsap.to('.menu-line:nth-child(3)', {
+                    rotation: 0,
+                    y: 0,
+                    duration: 0.4,
+                    ease: 'power3.inOut'
+                });
+            }
+        });
+
+        // Close menu on link click
+        menuLinks.forEach(link => {
+            link.querySelector('a').addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.querySelector('a').getAttribute('href');
+                
+                menuOpen = false;
+                
+                gsap.to('.menu-links li', {
+                    y: -50,
+                    opacity: 0,
+                    duration: 0.4,
+                    stagger: 0.05
+                });
+                
+                gsap.to(fullscreenMenu, {
+                    opacity: 0,
+                    duration: 0.5,
+                    delay: 0.2,
+                    onComplete: () => {
+                        fullscreenMenu.style.visibility = 'hidden';
+                        
+                        // Scroll to section
+                        const target = document.querySelector(targetId);
+                        if (target) {
+                            gsap.to(window, {
+                                duration: 1.5,
+                                scrollTo: {
+                                    y: target,
+                                    offsetY: 0
+                                },
+                                ease: 'power3.inOut'
+                            });
+                        }
+                    }
+                });
+                
+                gsap.to('.menu-line:nth-child(1)', {
+                    rotation: 0,
+                    y: 0,
+                    duration: 0.4
+                });
+                
+                gsap.to('.menu-line:nth-child(2)', {
+                    opacity: 1,
+                    duration: 0.2
+                });
+                
+                gsap.to('.menu-line:nth-child(3)', {
+                    rotation: 0,
+                    y: 0,
+                    duration: 0.4
+                });
+            });
+        });
