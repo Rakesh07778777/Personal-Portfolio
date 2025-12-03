@@ -713,3 +713,103 @@
             color: var(--accent);
             font-weight: 300;
         }
+
+
+
+        /* Projects Section - Enhanced */
+        .projects-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-item {
+            background: var(--bg);
+            padding: 80px;
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            cursor: none;
+            transition: all 0.5s ease;
+        }
+
+        .project-item:hover {
+            background: rgba(30, 30, 30, 1);
+            transform: translateX(10px);
+        }
+
+        .project-item::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, transparent, rgba(0, 243, 255, 0.05), transparent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+        }
+
+        .project-item:hover::before {
+            transform: scaleX(1);
+        }
+
+        .project-number {
+            font-size: 14px;
+            letter-spacing: 4px;
+            color: var(--accent);
+            position: relative;
+        }
+
+        .project-number::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 30px;
+            height: 1px;
+            background: var(--neon-pink);
+            transition: width 0.3s ease;
+        }
+
+        .project-item:hover .project-number::after {
+            width: 100%;
+        }
+
+        .project-info h3 {
+            font-size: 48px;
+            font-weight: 300;
+            margin-bottom: 20px;
+            letter-spacing: -2px;
+            transition: all 0.3s ease;
+        }
+
+        .project-item:hover .project-info h3 {
+            background: linear-gradient(90deg, var(--neon-pink), var(--neon-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .project-info p {
+            font-size: 18px;
+            color: var(--accent);
+            line-height: 1.6;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-top: 0.8rem;
+            position: relative;
+            overflow: hidden;
+        }
