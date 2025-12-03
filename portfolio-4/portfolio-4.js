@@ -378,3 +378,175 @@
                 });
             });
             
+    
+            // Image parallax
+            gsap.to('.about-image img', {
+                yPercent: -10,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: '.about-image-wrapper',
+                    start: 'top bottom',
+                    end: 'bottom top',
+                    scrub: 1
+                }
+            });
+
+            // Skills grid animation
+            gsap.utils.toArray('.skill-item').forEach((item, index) => {
+                gsap.from(item, {
+                    scrollTrigger: {
+                        trigger: item,
+                        start: 'top 85%'
+                    },
+                    opacity: 0,
+                    y: 80,
+                    duration: 1,
+                    delay: (index % 3) * 0.15,
+                    ease: 'power3.out'
+                });
+            });
+
+            // Projects hover with image preview - Enhanced
+            const projectItems = document.querySelectorAll('.project-item');
+            const projectPreview = document.querySelector('.project-image-preview');
+            const projectIcons = ['🎯', '💎', '🏛️', '🎵', '🧘', '🍕', '💖'];
+
+            projectItems.forEach((item, index) => {
+                // Project item animations
+                gsap.from(item, {
+                    scrollTrigger: {
+                        trigger: item,
+                        start: 'top 85%'
+                    },
+                    opacity: 0,
+                    x: -100,
+                    duration: 1,
+                    ease: 'power3.out'
+                });
+
+                // Image preview on hover
+                item.addEventListener('mouseenter', (e) => {
+                    projectPreview.textContent = projectIcons[index];
+                    gsap.to(projectPreview, {
+                        opacity: 1,
+                        scale: 1,
+                        duration: 0.4,
+                        ease: 'power2.out'
+                    });
+                });
+
+                item.addEventListener('mousemove', (e) => {
+                    gsap.to(projectPreview, {
+                        x: e.clientX + 20,
+                        y: e.clientY + 20,
+                        duration: 0.1,
+                        ease: 'power2.out'
+                    });
+                });
+
+                item.addEventListener('mouseleave', () => {
+                    gsap.to(projectPreview, {
+                        opacity: 0,
+                        scale: 0.8,
+                        duration: 0.4,
+                        ease: 'power2.out'
+                    });
+                });
+            });
+
+            // Awards animation
+            gsap.utils.toArray('.award-item').forEach((item, index) => {
+                gsap.from(item, {
+                    scrollTrigger: {
+                        trigger: item,
+                        start: 'top 85%'
+                    },
+                    opacity: 0,
+                    x: index % 2 === 0 ? -50 : 50,
+                    duration: 1,
+                    ease: 'power3.out'
+                });
+            });
+
+            // Contact section animations
+            gsap.from('.contact-title', {
+                scrollTrigger: {
+                    trigger: '.contact-content',
+                    start: 'top 75%'
+                },
+                opacity: 0,
+                y: 100,
+                duration: 1.2,
+                ease: 'power4.out'
+            });
+
+            gsap.from('.contact-email', {
+                scrollTrigger: {
+                    trigger: '.contact-content',
+                    start: 'top 70%'
+                },
+                opacity: 0,
+                y: 50,
+                duration: 1,
+                delay: 0.3,
+                ease: 'power3.out'
+            });
+
+            gsap.from('.social-link', {
+                scrollTrigger: {
+                    trigger: '.contact-content',
+                    start: 'top 70%'
+                },
+                opacity: 0,
+                y: 30,
+                stagger: 0.1,
+                duration: 0.8,
+                delay: 0.5,
+                ease: 'power2.out'
+            });
+
+            // Footer animation
+            gsap.from('footer', {
+                scrollTrigger: {
+                    trigger: 'footer',
+                    start: 'top 90%'
+                },
+                opacity: 0,
+                y: 50,
+                duration: 1,
+                ease: 'power3.out'
+            });
+
+            // Smooth scroll for navigation
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        gsap.to(window, {
+                            duration: 1.5,
+                            scrollTo: {
+                                y: target,
+                                offsetY: 0
+                            },
+                            ease: 'power3.inOut'
+                        });
+                    }
+                });
+            });
+
+            // Text reveal on scroll
+            const splitTexts = document.querySelectorAll('.hero-title .word');
+            splitTexts.forEach(text => {
+                gsap.to(text, {
+                    scrollTrigger: {
+                        trigger: text,
+                        start: 'top 80%',
+                        end: 'bottom 60%',
+                        scrub: 1
+                    },
+                    y: -20,
+                    opacity: 0.3,
+                    ease: 'none'
+                });
+            });
